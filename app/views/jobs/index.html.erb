@@ -15,9 +15,9 @@
   <tbody>
       <% @jobs.each do |job| %>
         <tr>
-            <td> # </td>
+            <td> <%= job.id %> </td>
             <td> <%= link_to job.title %></td>
-            <td> <%= job.description %> </td>
+            <td> <%= simple_format(job.description) %> </td>
             <td> <%= job.created_at %> </td>
         </tr>
       <% end %>
