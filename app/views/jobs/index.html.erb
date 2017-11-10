@@ -17,8 +17,7 @@
       <% @jobs.each do |job| %>
         <tr>
             <td> <%= job.id %> </td>
-            <td>
-              <%= render_job_status(job) %>
+            <td>          
               <%= link_to(job.title, job_path(job)) %>
             </td>
             <td> <%= simple_format(job.description) %> </td>
