@@ -9,6 +9,7 @@
           <th> Title </th>
           <th> Descripton </th>
           <th> Last Update </th>
+          <th> Option </th>
       </tr>
   </thead>
 
@@ -16,9 +17,12 @@
       <% @jobs.each do |job| %>
         <tr>
             <td> <%= job.id %> </td>
-            <td> <%= link_to job.title %></td>
+            <td> <%= link_to(job.title, job_path(job)) %></td>
             <td> <%= simple_format(job.description) %> </td>
             <td> <%= job.created_at %> </td>
+            <td> <%= link_to("Edit", edit_job_path(job), class:"btn btn-sm btn-default") %>
+                 <%= link_to("Delete", job_path(job), method: :delete, data: { confirm:"Are you sure?" }, class:"btn btn-sm btn-danger") %>
+            </td>
         </tr>
       <% end %>
   </tbody>
