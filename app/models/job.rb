@@ -4,6 +4,8 @@ class Job < ApplicationRecord
   validates :wage_upper_bound, presence: true
   validates :contact_email, presence: true
 
+  scope :recent, -> { order("created_at DESC") }
+
   def admin?
     is_admin
   end
