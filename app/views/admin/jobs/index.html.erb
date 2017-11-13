@@ -2,7 +2,7 @@
   <%= link_to("Publish a job", new_admin_job_path, class:"btn btn-primary pull-right") %>
 </div>
 
-<table class="table table-hover">
+<table class="table table-boldered table-striped custab">
   <thead>
       <tr>
           <th> # </th>
@@ -26,7 +26,7 @@
           <td> <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %> </td>
           <td> <%= job.wage_lower_bound %> </td>
           <td> <%= job.wage_upper_bound %> </td>
-          <td> <%= link_to "Edit job", edit_admin_job_path(job), class:"btn btn-sm btn-default" %>
+          <td> <%= link_to "Edit job", edit_admin_job_path(job), class:"btn btn-sm btn-info" %>
                <%= link_to("Delete", admin_job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-sm btn-danger") %>
                <% if job.is_hidden %>
                  <%= link_to("Publish", publish_admin_job_path(job), method: :post, class:"btn btn-sm btn-success") %>

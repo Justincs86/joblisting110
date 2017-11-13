@@ -9,12 +9,4 @@ class Admin::ResumesController < ApplicationController
     @resumes = @job.resumes.order("created_at DESC")
   end
 
- def show
-   @job = Job.find(params[:job_id])
-   @resume = Resume.find(params[:id])
-   @resume.job = @resume
-   @re
-
- end
-
 end
