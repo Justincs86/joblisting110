@@ -8,7 +8,9 @@
           <th> # </th>
           <th> Title </th>
           <th> Description </th>
-          <th> Create </th>
+          <th> Resume Received </th>
+          <th> Wage Lower Bound </th>
+          <th> Wage Upper Bound </th>
           <th> Option </th>
       </tr>
   </thead>
@@ -19,9 +21,11 @@
           <td> <%= job.id %> </td>
           <td>
             <%= render_job_status(job) %>
-            <%= link_to job.title, admin_job_path(job) %> </td>
+            <%= link_to(job.title, admin_job_path(job)) %> </td>
           <td> <%= job.description %> </td>
-          <td> <%= job.created_at %> </td>
+          <td> <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %> </td>
+          <td> <%= job.wage_lower_bound %> </td>
+          <td> <%= job.wage_upper_bound %> </td>
           <td> <%= link_to "Edit job", edit_admin_job_path(job), class:"btn btn-sm btn-default" %>
                <%= link_to("Delete", admin_job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-sm btn-danger") %>
                <% if job.is_hidden %>
